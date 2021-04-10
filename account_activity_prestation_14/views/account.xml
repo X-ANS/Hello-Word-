@@ -126,14 +126,11 @@
             <field name="model">account.move.line.search</field>
             <field name="inherit_id" ref="account.view_account_move_line_filter"/>
             <field name="arch" type="xml">
-                <xpath expr="//group[0]" position="inside">
-                     <filter string="Activité" icon="terp-go-month" domain="[]" context="{'group_by':'activity_id'}"/>
-                     <filter string="Prestation" icon="terp-go-month"
-                             domain="[]" context="{'group_by':'prestation_id'}"/>
-                     <filter string="Clé d'activité" icon="terp-go-month" domain="[]"
-                             context="{'group_by':'key_activity_id'}"/>
-                     <filter string="Type d'activité" icon="terp-go-month" domain="[]"
-                             context="{'group_by':'activity_type'}"/>
+                <xpath expr="//group" position="inside">
+                     <filter string="Activité" icon="terp-go-month" context="{'group_by':'activity_id'}"/>
+                     <filter string="Prestation" icon="terp-go-month" context="{'group_by':'prestation_id'}"/>
+                     <filter string="Clé d'activité" icon="terp-go-month" context="{'group_by':'key_activity_id'}"/>
+                     <filter string="Type d'activité" icon="terp-go-month" context="{'group_by':'activity_type'}"/>
                  </xpath>
             </field>
         </record>
