@@ -9,7 +9,6 @@ class AccountAccount(models.Model):
     activity_id = fields.Many2one('account.activity', string=u'Activité')
     key_activity_id = fields.Many2one('key.activity', string=u'Clé activité')
 
-    @api.one
     @api.constrains('activity_id', 'key_activity_id')
     def _check_activity(self):
         if self.activity_id and self.key_activity_id:
@@ -24,7 +23,6 @@ class AccountMoveLine(models.Model):
     prestation_id = fields.Many2one('account.prestation', string=u'Prestation')
     key_activity_id = fields.Many2one('key.activity', string=u'Clé activité')
 
-    @api.one
     @api.constrains('activity_id', 'key_activity_id', 'prestation_id')
     def _check_activity(self):
         if self.activity_id and self.key_activity_id:
