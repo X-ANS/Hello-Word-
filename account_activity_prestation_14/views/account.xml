@@ -92,7 +92,7 @@
         <record id="activity_prestation_form_analytic_inherit" model="ir.ui.view">
             <field name="name">activity.prestation.section.analytic.form</field>
             <field name="model">account.analytic.line</field>
-            <field name="inherit_id" ref="account.view_account_analytic_line_form"/>
+            <field name="inherit_id" ref="account.account_analytic_line_form"/>
             <field name="arch" type="xml">
                 <!-- find field description and add the field
                      idea_ids after it -->
