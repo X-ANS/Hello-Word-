@@ -57,7 +57,7 @@
             <field name="arch" type="xml">
                 <!-- find field description and add the field
                      idea_ids after it -->
-                <xpath expr="//group[@name='Analytic']" position="inside">
+                <xpath expr="//notebook/page/group/group[8]" position="inside">
                     <field name="activity_id" string="Activité"/>
                     <field name="prestation_id" string="Prestation"/>
                 </xpath>
