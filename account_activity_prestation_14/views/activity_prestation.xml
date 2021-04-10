@@ -45,18 +45,15 @@
             <field name="name">Activité</field>
             <field name="model">account.activity</field>
             <field name="arch" type="xml">
-                <data>
-                    <search>
-                        <field name="name"/>
-                        <field name="processus_ids"/>
-                        <field name="code"/>
-                        <field name="type"/>
-                        <group expand="0" string="Grouper par">
-                            <filter string="Type" domain="[]" context="{'group_by':'type'}"/>
-                        </group>
-
-                    </search>
-                </data>
+                <search>
+                    <field name="name"/>
+                    <field name="processus_ids"/>
+                    <field name="code"/>
+                    <field name="type"/>
+                    <group expand="0" name="Grouper par">
+                        <filter string="Type" domain="[]" context="{'group_by':'type'}"/>
+                    </group>
+                </search>
             </field>
         </record>
 
