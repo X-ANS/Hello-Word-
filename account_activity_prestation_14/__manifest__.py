@@ -17,7 +17,7 @@
     'website': "www.leithsolutions.net",
     'category': 'Comptabilite',
     'version': '14.0',
-    'depends': ['account','analytic','portnet_budget'],
+    'depends': ['account','analytic'],
     "images": ['static/description/banner.png'],
     'data': [
         'security/abc_groups.xml',
