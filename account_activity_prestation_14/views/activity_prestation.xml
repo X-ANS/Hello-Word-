@@ -41,23 +41,24 @@
                 </tree>
             </field>
         </record>
-          <record id="account_activity_filter_view" model="ir.ui.view">
+        <record id="account_activity_filter_view" model="ir.ui.view">
             <field name="name">Activité</field>
             <field name="model">account.activity</field>
             <field name="arch" type="xml">
+                <data>
+                    <search>
+                        <field name="name"/>
+                        <field name="processus_ids"/>
+                        <field name="code"/>
+                        <field name="type"/>
+                        <group expand="0" string="Grouper par">
+                            <filter string="Type" domain="[]" context="{'group_by':'type'}"/>
+                        </group>
 
-                <search>
-                    <field name="name"/>
-                <field name="processus_ids"/>
-                <field name="code"/>
-                <field name="type"/>
-                    <group expand="0" string="Grouper par">
-                        <filter string="Type" domain="[]" context="{'group_by':'type'}"/>
-                    </group>
-
-                </search>
+                    </search>
+                </data>
             </field>
-          </record>
+        </record>
 
 
         <record id="account_activity_form_view" model="ir.ui.view">
@@ -66,20 +67,21 @@
             <field name="arch" type="xml">
                 <form string="Activité">
                     <sheet>
-                            <label for="name" class="oe_edit_only"/>
-                            <h1>
-                                <field name="name" class="oe_inline"/>
-                            </h1>
-                            <group>
-                                <field name="code"/>
-                                <field name="type"/>
-                                <field name="processus_ids" widget="many2many_tags"/>
-                                <field name="prestation_ids" widget="many2many_tags" attrs="{'invisible':[('type','!=','direct')]}"/>
-                                <field name="active"/>
-                            </group>
-                            <group>
-                                <field name="description"/>
-                            </group>
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" class="oe_inline"/>
+                        </h1>
+                        <group>
+                            <field name="code"/>
+                            <field name="type"/>
+                            <field name="processus_ids" widget="many2many_tags"/>
+                            <field name="prestation_ids" widget="many2many_tags"
+                                   attrs="{'invisible':[('type','!=','direct')]}"/>
+                            <field name="active"/>
+                        </group>
+                        <group>
+                            <field name="description"/>
+                        </group>
                         <notebook>
                             <page string="Atrributs">
                                 <group>
@@ -122,8 +124,8 @@
                 <search>
                     <field name="name"/>
                     <field name="code"/>
-                <field name="processus_id"/>
-                <field name="code"/>
+                    <field name="processus_id"/>
+                    <field name="code"/>
                     <group expand="0" string="Grouper par">
                         <filter string="Processus" domain="[]" context="{'group_by':'processus_id'}"/>
                         <filter string="prorata_type" domain="[]" context="{'group_by':'prorata_type'}"/>
@@ -131,7 +133,7 @@
 
                 </search>
             </field>
-          </record>
+        </record>
 
 
         <record id="account_prestation_form_view" model="ir.ui.view">
@@ -140,34 +142,35 @@
             <field name="arch" type="xml">
                 <form string="Prestation">
                     <sheet>
-                            <label for="name" class="oe_edit_only"/>
-                            <h1>
-                                <field name="name" class="oe_inline"/>
-                            </h1>
-                            <group>
-                                <field name="code"/>
-                                <field name="code_externe"/>
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" class="oe_inline"/>
+                        </h1>
+                        <group>
+                            <field name="code"/>
+                            <field name="code_externe"/>
 
-                                <field name="processus_id"/>
-                                <field name="active"/>
-                                <field name="marco_prestation_id"/>
-                                <field name="prorata_type"/>
-                                <field name="prorata_processus_id" attrs="{'invisible':[('prorata_type','=',False)]}"/>
-                                <field name="prestation_ids" widget="many2many_tags" attrs="{'invisible':['|',('prorata_type','=',False),('prorata_processus_id','!=',False)]}"/>
-                            </group>
-                            <notebook>
-                                <page string="Atrributs">
-                                    <group>
-                                        <field name="import_export"/>
-                                        <field name="phase_id"/>
-                                        <field name="prestation_attribute_a_id"/>
-                                        <field name="prestation_attribute_b_id"/>
-                                        <field name="prestation_attribute_c_id"/>
-                                        <field name="prestation_attribute_d_id"/>
-                                        <field name="prestation_attribute_e_id"/>
-                                    </group>
-                                </page>
-                            </notebook>
+                            <field name="processus_id"/>
+                            <field name="active"/>
+                            <field name="marco_prestation_id"/>
+                            <field name="prorata_type"/>
+                            <field name="prorata_processus_id" attrs="{'invisible':[('prorata_type','=',False)]}"/>
+                            <field name="prestation_ids" widget="many2many_tags"
+                                   attrs="{'invisible':['|',('prorata_type','=',False),('prorata_processus_id','!=',False)]}"/>
+                        </group>
+                        <notebook>
+                            <page string="Atrributs">
+                                <group>
+                                    <field name="import_export"/>
+                                    <field name="phase_id"/>
+                                    <field name="prestation_attribute_a_id"/>
+                                    <field name="prestation_attribute_b_id"/>
+                                    <field name="prestation_attribute_c_id"/>
+                                    <field name="prestation_attribute_d_id"/>
+                                    <field name="prestation_attribute_e_id"/>
+                                </group>
+                            </page>
+                        </notebook>
                     </sheet>
                     <div class="oe_chatter">
                         <field name="message_follower_ids" widget="mail_followers"/>
@@ -180,8 +183,10 @@
 
         <!-- menus in settings - technical feature required -->
         <menuitem id="analytic_config_menu" name="Configuration" parent="account.menu_analytic_accounting"/>
-        <menuitem id="analytic_activity_menu" name="Activités" parent="analytic_config_menu" action="account_activity_action"/>
-        <menuitem id="analytic_prestation_menu" name="Prestations" parent="analytic_config_menu" action="account_prestation_action"/>
+        <menuitem id="analytic_activity_menu" name="Activités" parent="analytic_config_menu"
+                  action="account_activity_action"/>
+        <menuitem id="analytic_prestation_menu" name="Prestations" parent="analytic_config_menu"
+                  action="account_prestation_action"/>
 
 
     </data>
