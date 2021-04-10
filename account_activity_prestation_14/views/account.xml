@@ -126,7 +126,7 @@
             <field name="model">account.move.line</field>
             <field name="inherit_id" ref="account.view_account_move_line_filter"/>
             <field name="arch" type="xml">
-                <xpath expr="//search/group[0]" position="inside">
+                <xpath expr="//search/group[@name='Group By']" position="inside">
                     <filter string="Activité" icon="terp-go-month" domain="[]" context="{'group_by':'activity_id'}"/>
                     <filter string="Prestation" icon="terp-go-month"
                             domain="[]" context="{'group_by':'prestation_id'}"/>
