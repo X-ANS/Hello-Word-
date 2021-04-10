@@ -49,7 +49,6 @@ class AccountMoveLine(models.Model):
                 self.prestation_id = False
             return res
 
-    @api.multi
     def onchange_account_id(self, account_id, partner_id):
 
         res = super(AccountMoveLine, self).onchange_account_id(account_id=account_id, partner_id=partner_id)
@@ -73,7 +72,6 @@ class AccountMoveLine(models.Model):
                 res['value']['key_activity_id'] = False
             return res
 
-    @api.multi
     def create_analytic_lines(self):
         acc_ana_line_obj = self.env['account.analytic.line']
         for obj_line in self:
@@ -149,7 +147,6 @@ class AccountAnalyticLine(models.Model):
 class AccountMove(models.Model):
     _inherit = 'account.move'
 
-    @api.multi
     def post(self):
         for rec in self:
            for line in rec.line_id:
