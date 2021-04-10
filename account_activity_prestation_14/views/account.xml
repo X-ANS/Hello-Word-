@@ -29,11 +29,11 @@
             <field name="arch" type="xml">
                 <!-- find field description and add the field
                      idea_ids after it -->
-                <xpath expr="//tree[@string='Journal Items']//field[@name='account_id']" position="attributes">
+                <xpath expr="//tree[1]//field[@name='account_id']" position="attributes">
                     <attribute name="on_change">onchange_account_id(account_id, partner_id, context)</attribute>
                 </xpath>
 
-                <xpath expr="//tree[@name='Journal Items']" position="inside">
+                <xpath expr="//tree[1]" position="inside">
                     <field name="activity_id" string="Activité"/>
                     <field name="activity_type" invisible="1"/>
                     <field name="prestation_id" string="Prestation"
