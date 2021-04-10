@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+
+        <!-- account.activity definitions view -->
+        <record id="account_activity_action" model="ir.actions.act_window">
+            <field name="name">Activités</field>
+            <field name="res_model">account.activity</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Cliquer pour creer une activité.
+                </p>
+            </field>
+        </record>
+
+        <!-- account.prestation definitions view -->
+        <record id="account_prestation_action" model="ir.actions.act_window">
+            <field name="name">Prestations</field>
+            <field name="res_model">account.prestation</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Cliquer pour creer une prestation.
+                </p>
+            </field>
+        </record>
+
+        <record id="account_activity_list_view" model="ir.ui.view">
+            <field name="name">Activité</field>
+            <field name="model">account.activity</field>
+            <field name="arch" type="xml">
+                <tree string="Activité">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="type"/>
+                    <field name="active"/>
+                    <field name="len_process"/>
+                    <field name="processus_ids" widget="many2many_tags"/>
+                </tree>
+            </field>
+        </record>
+          <record id="account_activity_filter_view" model="ir.ui.view">
+            <field name="name">Activité</field>
+            <field name="model">account.activity</field>
+            <field name="arch" type="xml">
+
+                <search>
+                    <field name="name"/>
+                <field name="processus_ids"/>
+                <field name="code"/>
+                <field name="type"/>
+                    <group expand="0" string="Grouper par">
+                        <filter string="Type" domain="[]" context="{'group_by':'type'}"/>
+                    </group>
+
+                </search>
+            </field>
+          </record>
+
+
+        <record id="account_activity_form_view" model="ir.ui.view">
+            <field name="name">Activité</field>
+            <field name="model">account.activity</field>
+            <field name="arch" type="xml">
+                <form string="Activité">
+                    <sheet>
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" class="oe_inline"/>
+                            </h1>
+                            <group>
+                                <field name="code"/>
+                                <field name="type"/>
+                                <field name="processus_ids" widget="many2many_tags"/>
+                                <field name="prestation_ids" widget="many2many_tags" attrs="{'invisible':[('type','!=','direct')]}"/>
+                                <field name="active"/>
+                            </group>
+                            <group>
+                                <field name="description"/>
+                            </group>
+                        <notebook>
+                            <page string="Atrributs">
+                                <group>
+                                    <field name="activity_attribute_a_id"/>
+                                    <field name="activity_attribute_b_id"/>
+                                    <field name="activity_attribute_c_id"/>
+                                    <field name="activity_attribute_d_id"/>
+                                    <field name="activity_attribute_e_id"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="account_prestation_list_view" model="ir.ui.view">
+            <field name="name">Prestation</field>
+            <field name="model">account.prestation</field>
+            <field name="arch" type="xml">
+                <tree string="Prestation">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="processus_id"/>
+                    <field name="active"/>
+                    <field name="marco_prestation_id"/>
+                </tree>
+            </field>
+        </record>
+        <record id="account_prestation_filter_view" model="ir.ui.view">
+            <field name="name">Prestation</field>
+            <field name="model">account.prestation</field>
+            <field name="arch" type="xml">
+
+                <search>
+                    <field name="name"/>
+                    <field name="code"/>
+                <field name="processus_id"/>
+                <field name="code"/>
+                    <group expand="0" string="Grouper par">
+                        <filter string="Processus" domain="[]" context="{'group_by':'processus_id'}"/>
+                        <filter string="prorata_type" domain="[]" context="{'group_by':'prorata_type'}"/>
+                    </group>
+
+                </search>
+            </field>
+          </record>
+
+
+        <record id="account_prestation_form_view" model="ir.ui.view">
+            <field name="name">Prestation</field>
+            <field name="model">account.prestation</field>
+            <field name="arch" type="xml">
+                <form string="Prestation">
+                    <sheet>
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" class="oe_inline"/>
+                            </h1>
+                            <group>
+                                <field name="code"/>
+                                <field name="code_externe"/>
+
+                                <field name="processus_id"/>
+                                <field name="active"/>
+                                <field name="marco_prestation_id"/>
+                                <field name="prorata_type"/>
+                                <field name="prorata_processus_id" attrs="{'invisible':[('prorata_type','=',False)]}"/>
+                                <field name="prestation_ids" widget="many2many_tags" attrs="{'invisible':['|',('prorata_type','=',False),('prorata_processus_id','!=',False)]}"/>
+                            </group>
+                            <notebook>
+                                <page string="Atrributs">
+                                    <group>
+                                        <field name="import_export"/>
+                                        <field name="phase_id"/>
+                                        <field name="prestation_attribute_a_id"/>
+                                        <field name="prestation_attribute_b_id"/>
+                                        <field name="prestation_attribute_c_id"/>
+                                        <field name="prestation_attribute_d_id"/>
+                                        <field name="prestation_attribute_e_id"/>
+                                    </group>
+                                </page>
+                            </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- menus in settings - technical feature required -->
+        <menuitem id="analytic_config_menu" name="Configuration" parent="account.menu_analytic_accounting"/>
+        <menuitem id="analytic_activity_menu" name="Activités" parent="analytic_config_menu" action="account_activity_action"/>
+        <menuitem id="analytic_prestation_menu" name="Prestations" parent="analytic_config_menu" action="account_prestation_action"/>
+
+
+    </data>
+</odoo>
