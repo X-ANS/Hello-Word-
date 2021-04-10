@@ -45,7 +45,7 @@
             <field name="name">Activité</field>
             <field name="model">account.activity</field>
             <field name="arch" type="xml">
-                <search name="Roles">
+                <form name="Roles">
 <!--                    <field name="name"/>-->
 <!--                    <field name="processus_ids"/>-->
 <!--                    <field name="code"/>-->
@@ -53,7 +53,7 @@
 <!--                    <group expand="0" name="Grouper par">-->
 <!--                        <filter string="Type" context="{'group_by':'type'}"/>-->
 <!--                    </group>-->
-                </search>
+                </form>
             </field>
         </record>
 
