@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="hr_timesheet_line_tree_activity_prestation" model="ir.ui.view">
+            <field name="name">hr.analytic.timesheet.tree.activity.prestation</field>
+            <field name="model">hr_timesheet_sheet.sheet</field>
+            <field name="inherit_id" ref="hr_timesheet_sheet.hr_timesheet_sheet_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//button[@name='done']" position="attributes">
+                    <attribute name="groups">base.group_user</attribute>
+                </xpath>
+
+                <xpath expr="//button[@name='cancel']" position="attributes">
+                    <attribute name="groups">base.group_user</attribute>
+                </xpath>
+
+
+                <xpath expr="//sheet/group/group/div" position="after">
+                    <field name="matricule_employee" string="Matricule" invisible="1"/>
+                    <field name="tjm_employee" string="Taux Journalier" invisible="1" />
+                    <field name="compute_modification" invisible="1"/>
+                </xpath>
+
+
+                 <xpath expr="//notebook/page[@string='Details']/field[@name='timesheet_ids']/tree[@string='Timesheet Activities']/field[@name='name']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+				</xpath>
+                <xpath expr="//notebook/page[@string='Details']/field[@name='timesheet_ids']/tree[@string='Timesheet Activities']/field[@name='to_invoice']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+				</xpath>
+
+                <xpath expr="//notebook/page[@string='Details']/field[@name='timesheet_ids']/tree[@string='Timesheet Activities']/field[@name='date']" position="before">
+                    <field name="enable_modification" string = "Modifier"/>
+				</xpath>
+                <xpath expr="//notebook/page[@string='Details']/field[@name='timesheet_ids']/tree[@string='Timesheet Activities']/field[@name='date']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('enable_modification', '=', False)]}</attribute>
+				</xpath>
+                <xpath expr="//notebook/page[@string='Details']/field[@name='timesheet_ids']/tree[@string='Timesheet Activities']/field[@name='account_id']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('enable_modification', '=', False)]}</attribute>
+				</xpath>
+                <xpath expr="//notebook/page[@string='Details']/field[@name='timesheet_ids']/tree[@string='Timesheet Activities']/field[@name='unit_amount']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('enable_modification', '=', False)]}</attribute>
+                </xpath>
+                <xpath expr="//notebook/page[@string='Details']/field[@name='timesheet_ids']/tree[@string='Timesheet Activities']/field[@name='name']" position="after">
+	                <field name="matricule_employee" string="Matricule" attrs="{'readonly': [('enable_modification', '=', False)]}"/>
+                    <field name="emp_id" invisible="1" />
+                    <field name="activity_code" invisible="1" />
+                    <field name="activity_id" string="Activité" attrs="{'readonly': [('enable_modification', '=', False)]}"/>
+                    <field name="prestation_id" string="Préstation" attrs="{'readonly': ['|',('enable_modification', '=', False),('activity_code','!=','PROJEC')],'required':[('activity_code','=','PROJEC')]}"/>
+                    <field name="name" string = "Description Tâche" attrs="{'readonly': [('enable_modification', '=', False)]}" />
+				</xpath>
+
+                <!--<xpath expr="//notebook/page[@string='Details']/field[@name='timesheet_ids']/tree[@string='Timesheet Activities']/field[@name='unit_amount']" position="replace">
+                    <field name="unit_amount" on_change="on_change_unit_amount_tjm(unit_amount)" widget="float_time" string="Hours" sum="Hours" attrs="{'readonly': [('enable_modification', '=', False)]}"/>
+				</xpath>-->
+
+                <xpath expr="//notebook/page[@string='Summary']" position="attributes">
+                        <attribute name="invisible">1</attribute>
+				</xpath>
+
+                <xpath expr="//button[@name='button_confirm']" position="after">
+                    <button name="sync_analytic_parameter" states="draft" string="Sychronisation Analytique" type="object" class="oe_highlight"/>
+                </xpath>
+
+            </field>
+
+        </record>
+
+    </data>
+
+</openerp>

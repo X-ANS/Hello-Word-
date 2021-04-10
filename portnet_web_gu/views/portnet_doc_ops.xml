@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+
+        <!-- Portnet Ops -->
+        <record id="portnet_ops_action" model="ir.actions.act_window">
+            <field name="name">Portnet ops</field>
+            <field name="res_model">portnet.ops</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <record id="portnet_ops_list_view" model="ir.ui.view">
+            <field name="name">Portnet Document (Opérations)</field>
+            <field name="model">portnet.ops</field>
+            <field name="arch" type="xml">
+                <tree string="Portnet ops">
+                    <field name="name"/>
+                    <field name="desc"/>
+                    <field name="document_id"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="portnet_ops_form_view" model="ir.ui.view">
+            <field name="name">Portnet ops</field>
+            <field name="model">portnet.ops</field>
+            <field name="arch" type="xml">
+                <form string="Portnet Ops">
+                    <sheet>
+                            <group>
+                                <field name="name"/>
+                                <field name="desc"/>
+                                <field name="code_externe"   />
+                                <field name="document_id"/>
+                            </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+
+        <menuitem id="portnet_ops_menu" name="Document (Opérations)" parent="portnet_gu_menu" action="portnet_ops_action"/>
+
+
+
+        <!-- Portnet Docs Ops -->
+        <record id="portnet_doc_ops_action" model="ir.actions.act_window">
+            <field name="name">Portnet Op / Doc</field>
+            <field name="res_model">portnet.doc.ops</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="portnet_op_doc_search_view" model="ir.ui.view">
+            <field name="name">Portnet op/doc</field>
+            <field name="model">portnet.doc.ops</field>
+            <field name="arch" type="xml">
+
+                <search>
+                    <field name="name"/>
+                    <field name="op_id"/>
+                    <field name="date"/>
+                    <group expand="0" string="Grouper par">
+                        <filter string="Prestation" domain="[]" context="{'group_by':'name'}"/>
+                        <filter string="Opération" domain="[]" context="{'group_by':'op_id'}"/>
+                        <filter string="Date" domain="[]" context="{'group_by':'date'}"/>
+                    </group>
+
+                </search>
+            </field>
+          </record>
+<record id="portnet_ops_search_view" model="ir.ui.view">
+            <field name="name">Portnet Ops</field>
+            <field name="model">portnet.ops</field>
+            <field name="arch" type="xml">
+
+                <search>
+                    <field name="name"/>
+                    <field name="desc"/>
+                    <field name="code_externe"/>
+                    <field name="document_id"/>
+                    <group expand="0" string="Grouper par">
+                        <filter string="Document" domain="[]" context="{'group_by':'document_id'}"/>
+                    </group>
+
+                </search>
+            </field>
+          </record>
+
+
+        <record id="portnet_doc_ops_list_view" model="ir.ui.view">
+            <field name="name">Portnet Opérations / Document</field>
+            <field name="model">portnet.doc.ops</field>
+            <field name="arch" type="xml">
+                <tree string="Portnet ops / doc">
+                    <field name="name"/>
+                    <field name="num"/>
+                    <field name="date"/>
+                    <field name="op_id"/>
+                    <field name="desc_op"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="portnet_doc_ops_form_view" model="ir.ui.view">
+            <field name="name">Portnet Opérations / Document</field>
+            <field name="model">portnet.doc.ops</field>
+            <field name="arch" type="xml">
+                <form string="Portnet Ops / doc">
+                    <sheet>
+                            <group>
+                                <field name="name"/>
+                                <field name="num"/>
+                                <field name="date"/>
+                                <field name="op_id"/>
+                                <field name="desc_op"/>
+                            </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+
+        <menuitem id="portnet_doc_ops_menu" name="Opérations / Document" parent="portnet_gu_menu" action="portnet_doc_ops_action"/>
+
+
+        <!-- Portnet Matrix -->
+        <record id="portnet_matrix_action" model="ir.actions.act_window">
+            <field name="name">Portnet matrix</field>
+            <field name="res_model">portnet.matrix</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="portnet_matrix_search_view" model="ir.ui.view">
+            <field name="name">Portnet matrix</field>
+            <field name="model">portnet.matrix</field>
+            <field name="arch" type="xml">
+
+                <search>
+                    <field name="prestation_id"/>
+                    <field name="op_id"/>
+
+                    <group expand="0" string="Grouper par">
+                        <filter string="Document" domain="[]" context="{'group_by':'prestation_id'}"/>
+                        <filter string="Opération" domain="[]" context="{'group_by':'op_id'}"/>
+                    </group>
+
+                </search>
+            </field>
+          </record>
+
+
+        <record id="portnet_matrix_list_view" model="ir.ui.view">
+            <field name="name">Portnet Matrice</field>
+            <field name="model">portnet.matrix</field>
+            <field name="arch" type="xml">
+                <tree string="Portnet matrice">
+                    <field name="prestation_id"/>
+                    <field name="op_id"/>
+                    <field name="client_categ_ids" widget="many2many_tags"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="portnet_matrix_form_view" model="ir.ui.view">
+            <field name="name">Portnet Matrice</field>
+            <field name="model">portnet.matrix</field>
+            <field name="arch" type="xml">
+                <form string="Portnet Matrice">
+                    <sheet>
+                            <group>
+                                <field name="prestation_id"/>
+                                <field name="op_id"/>
+                                <field name="client_categ_ids" widget="many2many_tags"/>
+                            </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+
+        <menuitem id="portnet_matrix_menu" name="Matrice Ops / Categ Cliens" parent="portnet_gu_menu" action="portnet_matrix_action"/>
+
+
+    </data>
+</openerp>

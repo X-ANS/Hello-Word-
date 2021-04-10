@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+
+        <!-- invoice xml get wizard -->
+
+        <record id="action_sync_analytic_parameter_wizard_view" model="ir.ui.view">
+            <field name="name">action.sync.analytic.parameter.wizard.view</field>
+            <field name="model">sync.analytic.parameter.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Synchronisation Avec Ecritures Analytiques">
+                    <footer>
+                        <button string="Valider" class="oe_highlight" type="object" name="action_validate"
+                                confirm="Etes-vous sûr de vouloir synchroniser avec les écritures analytique ?"/>
+                        ou
+                        <button string="Annuler" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action -->
+
+        <act_window id="action_sync_analytic_parameter_wizard"
+                    name="Synchronisation avec Ecritures Analytiques"
+                    res_model="sync.analytic.parameter.wizard"
+                    src_model="hr_timesheet_sheet.sheet"
+                    domain=""
+                    view_mode="form"
+                    target ="new"
+                    key2="client_action_multi"
+                    groups=""
+        />
+
+        
+
+    </data>
+</openerp>

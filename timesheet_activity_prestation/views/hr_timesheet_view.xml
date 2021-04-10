@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="hr_timesheet_sheet_form_analytic_abc" model="ir.ui.view">
+            <field name="name">hr.analytic.abc.timesheet.sheet</field>
+            <field name="model">hr.analytic.timesheet</field>
+            <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_tree"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='user_id']" position="after">
+                    <field name="emp_id" string="Employe" invisible ="1"/>
+                    <field name="matricule_employee" string="Matricule"/>
+                    <field name="activity_id" string="Activité" />
+                    <field name="prestation_id" string="Préstation"/>
+                </xpath>
+
+            </field>
+        </record>
+
+        <record id="hr_timesheet_line_search_inherit" model="ir.ui.view">
+            <field name="name">hr.analytic.timesheet.search.inherit</field>
+            <field name="model">hr.analytic.timesheet</field>
+            <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_search" />
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@string='Timesheet Month']" position="after">
+                    <filter string="Semaine de la Feuille" icon="terp-go-month" domain="[]" context="{'group_by':'date:week'}" help="Timesheet by Week"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+
+</openerp>

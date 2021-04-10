@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="employee_activites_form_view" model="ir.ui.view" >
+            <field name="name">employee.activites</field>
+            <field name="model">hr.employee</field>
+            <field name="sequence">20</field>
+            <field name="inherit_id" ref="paie.employee_cin_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[@string='Détails personnel']" position="after">
+                    <page name="Comptabiité Analytique" string="Comptabiité Analytique" >
+                        <label string="Activités" for = "activity_ids"  />
+                        <field name="activity_ids" nolabel="1" widget="many2many_tags" ></field>
+                        <label string="Taux Journalier" for = "tjm_employee"  />
+                        <field name="tjm_employee" string="Taux Journalier" />
+                        <group string="Timesheets">
+                            <field name="product_id" domain="[('type','=','service')]"/>
+                            <field name="journal_id"/>
+                        </group>
+                    </page>
+				</xpath>
+
+            </field>
+        </record>
+
+
+    </data>
+ </openerp>

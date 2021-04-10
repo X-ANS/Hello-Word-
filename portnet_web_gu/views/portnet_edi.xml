@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+
+        <!-- Portnet EDI -->
+        <record id="portnet_edi_action" model="ir.actions.act_window">
+            <field name="name">Portnet EDI</field>
+            <field name="res_model">portnet.edi</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <record id="portnet_edi_list_view" model="ir.ui.view">
+            <field name="name">Portnet EDI</field>
+            <field name="model">portnet.edi</field>
+            <field name="arch" type="xml">
+                <tree string="Portnet EDI">
+                    <field name="name"/>
+                    <field name="num"/>
+                    <field name="date"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="portnet_edi_form_view" model="ir.ui.view">
+            <field name="name">Portnet edi</field>
+            <field name="model">portnet.edi</field>
+            <field name="arch" type="xml">
+                <form string="Portnet EDI">
+                    <sheet>
+                            <group>
+                                <field name="name"/>
+                                <field name="num"/>
+                                <field name="date"/>
+                            </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+
+<!--        <menuitem id="portnet_edi_menu" name="Portnet EDI" parent="portnet_gu_menu" action="portnet_edi_action"/>-->
+
+
+    </data>
+</openerp>

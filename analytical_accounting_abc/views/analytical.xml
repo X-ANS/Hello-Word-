@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+
+        <record model="ir.actions.act_window" id="account.action_account_analytic_journal_open_form">
+            <field name="view_mode">tree,form,graph</field>
+        </record>
+
+
+        <record id="view_account_analytic_graph" model="ir.ui.view">
+             <field name="name">BI analytic</field>
+             <field name="model">account.analytic.line</field>
+             <field name="arch" type="xml">
+                 <graph string="Analyse des ecritures analytiques" type="pivot" stacked="True">
+                     <field name="account_id" type="row"/>
+                     <field name="date" interval="month" type="col"/>
+                     <field name="amount" type="measure"/>
+                 </graph>
+             </field>
+        </record>
+
+
+        <!-- analytic.step definitions view -->
+        <record id="analytic_step_action" model="ir.actions.act_window">
+            <field name="name">Les étapes de réallocation</field>
+            <field name="res_model">analytic.step</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Cliquer pour creer les étapes de réallocation.
+                </p>
+            </field>
+        </record>
+
+
+        <record id="analytic_step_list_view" model="ir.ui.view">
+            <field name="name">Les étapes de réallocation</field>
+            <field name="model">analytic.step</field>
+            <field name="arch" type="xml">
+                <tree string="Les étapes de réallocation">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="step"/>
+                    <field name="initial_step"/>
+                    <field name="analytic_key_ids"  widget="many2many_tags"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="analytic_step_form_view" model="ir.ui.view">
+            <field name="name">Les étapes de réallocation</field>
+            <field name="model">analytic.step</field>
+            <field name="arch" type="xml">
+                <form string="Les étapes de réallocation">
+                    <sheet>
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" class="oe_inline"/>
+                            </h1>
+                            <group>
+                                <field name="code"/>
+                                <field name="step"/>
+                                <field name="initial_step"/>
+                                <field name="analytic_key_ids"  widget="many2many_tags" attrs="{'invisible':[('initial_step', '=',True)],'required':[('initial_step', '=',False)]}"/>
+                            </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+
+    <record id="account_analytic_line_abc_form_inherit" model="ir.ui.view">
+        <field name="name">abc.analytic.form</field>
+        <field name="model">account.analytic.line</field>
+        <field name="inherit_id" ref="account.view_account_analytic_line_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="before">
+              <field name="step_id"/>
+              <field name="prestation_source_id"/>
+            </xpath>
+        </field>
+    </record>
+
+
+     <record id="account_analytic_line_abc_tree_inherit" model="ir.ui.view">
+        <field name="name">abc.analytic.tree</field>
+        <field name="model">account.analytic.line</field>
+        <field name="inherit_id" ref="account.view_account_analytic_line_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="before">
+              <field name="step_id"/>
+              <field name="prestation_source_id"/>
+            </xpath>
+        </field>
+     </record>
+
+
+        <!-- account.analytical.monthly definitions view -->
+        <record id="account_analytical_monthly_list_action" model="ir.actions.act_window">
+            <field name="name">Arreter analytique</field>
+            <field name="res_model">account.analytical.monthly</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Cliquer pour creer un arreter analytique.
+                </p>
+            </field>
+        </record>
+
+
+        <record id="account_analytical_monthly_list_view" model="ir.ui.view">
+            <field name="name">Arreter analytique</field>
+            <field name="model">account.analytical.monthly</field>
+            <field name="arch" type="xml">
+                <tree string="Arreter analytique">
+                    <field name="name"/>
+                    <field name="date_debut"/>
+                    <field name="date_fin"/>
+
+                </tree>
+            </field>
+        </record>
+        <record id="view_account_analytic_line_filter_inherited_abc" model="ir.ui.view">
+            <field name="name">account.analytic.line.select</field>
+            <field name="model">account.analytic.line</field>
+            <field name="inherit_id" ref="account.view_account_analytic_line_filter"/>
+            <field name="arch" type="xml">
+                <group string="Group By" position="inside">
+                 <filter string="Activité" icon="terp-go-month" domain="[]" context="{'group_by':'activity_id'}"/>
+                 <filter string="Type d'activité" icon="terp-go-month" domain="[]" context="{'group_by':'activity_type'}"/>
+                 <filter string="Prestation" icon="terp-go-month" domain="[]" context="{'group_by':'prestation_id'}"/>
+                 <filter string="Arreter analytique" icon="terp-go-month" domain="[]" context="{'group_by':'analytical_monthly_id'}"/>
+                 <filter string="Etape de réallocation" icon="terp-go-month" domain="[]" context="{'group_by':'step_id'}"/>
+                 </group>
+                <field name="name" position="after">
+                    <field name="activity_id"/>
+                    <field name="prestation_id"/>
+                    <field name="step_id"/>
+                    <field name="analytical_monthly_id"/>
+                </field>
+            </field>
+        </record>
+
+
+        <record id="account_analytical_monthly_form_view" model="ir.ui.view">
+            <field name="name">Arreter analytique</field>
+            <field name="model">account.analytical.monthly</field>
+            <field name="arch" type="xml">
+                <form string="Arreter analytique">
+                    <header>
+                        <button name="generate_key_values_action" type="object" states="draft" string="Generer les valeur de clés" class="oe_highlight"/>
+                        <button name="generate_values" type="object" states="draft" string="Generer valeur" class="oe_highlight"/>
+                        <button name="validate_entries" type="inprogress" states="key_generated" string="Valider" class="oe_highlight"/>
+                        <button name="to_draft" type="object" states="key_generated,inprogress" string="Nouveau" class="oe_highlight"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,done" statusbar_colors='{"draft":"blue","done":"green"}'/>
+                    </header>
+                    <sheet>
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" class="oe_inline" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            </h1>
+                            <group>
+                                <field name="date_debut" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="date_fin" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="timesheet_account_id" readonly="1"/>
+                            </group>
+                        <notebook>
+                            <page string="Valeurs des étapes">
+                                <field name="step_ids" nolabel="1">
+                                    <tree>
+                                        <field name="step_id"/>
+                                        <button name="action_activity_lines"
+                                            string="Lignes activités"
+                                            type="object" icon="gtk-execute"
+                                            help="Lignes acrtivités"/>
+                                        <button name="action_prestation_lines"
+                                            string="Lignes prestations"
+                                            type="object" icon="gtk-execute"
+                                            help="Lignes prestations"/>
+                                    </tree>
+                                </field>
+
+                            </page>
+                            <page string="Etapes">
+                                <field name="step_to_use_ids">
+                                    <tree editable="bottom">
+                                        <field name="step_id"/>
+                                        <field name="sequence"/>
+                                        <field name="key_ids" widget="many2many_tags"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <!--
+                            <page string="Lignes analytique">
+                                <field name="analytical_account_ids" nolanel="1"/>
+                            </page>-->
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+
+
+        <!-- menus in settings - technical feature required -->
+        <menuitem id="arreter_analytique_menu" name="Arreter analytique" parent="account.menu_analytic_accounting" action="account_analytical_monthly_list_action" />
+        <menuitem id="analytic_step_menu" name="Etapes de réallocation" parent="account.menu_analytic_accounting" action="analytic_step_action" />
+
+
+    </data>
+</openerp>

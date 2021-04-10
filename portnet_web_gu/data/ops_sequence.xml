@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="seq_portnet_ops_type" model="ir.sequence.type">
+            <field name="name">Portnet OPS</field>
+            <field name="code">portnet_ops</field>
+        </record>
+        <record id="seq_portnet_ops" model="ir.sequence">
+                <field name="name">Portnet OPS</field>
+                <field name="code">portnet_ops</field>
+                <field name="padding">6</field>
+            </record>
+    </data>
+</openerp>

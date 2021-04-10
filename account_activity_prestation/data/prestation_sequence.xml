@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="seq_account_prestation_type" model="ir.sequence.type">
+            <field name="name">Account prestation</field>
+            <field name="code">prestation_code</field>
+        </record>
+        <record id="seq_account_prestation" model="ir.sequence">
+                <field name="name">Account prestation</field>
+                <field name="code">prestation_code</field>
+                <field name="padding">6</field>
+            </record>
+    </data>
+</openerp>

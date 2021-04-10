@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+
+        <!-- Portnet Client -->
+        <record id="portnet_client_action" model="ir.actions.act_window">
+            <field name="name">Portnet Clients</field>
+            <field name="res_model">portnet.client</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="portnet_client_search_view" model="ir.ui.view">
+            <field name="name">Portnet client</field>
+            <field name="model">portnet.client</field>
+            <field name="arch" type="xml">
+
+                <search>
+                    <field name="name"/>
+                    <field name="client_categ_id"/>
+                    <field name="date"/>
+                    <group expand="0" string="Grouper par">
+                        <filter string="Compte client" domain="[]" context="{'group_by':'name'}"/>
+                        <filter string="Catégorie client" domain="[]" context="{'group_by':'client_categ_id'}"/>
+                        <filter string="Date" domain="[]" context="{'group_by':'date'}"/>
+                    </group>
+
+                </search>
+            </field>
+          </record>
+
+
+        <record id="portnet_client_list_view" model="ir.ui.view">
+            <field name="name">Portnet Client</field>
+            <field name="model">portnet.client</field>
+            <field name="arch" type="xml">
+                <tree string="Portnet Client">
+                    <field name="name"/>
+                    <field name="code_client"/>
+                    <field name="num"/>
+                    <field name="client_categ_id"/>
+                    <field name="date"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="portnet_fs_form_view" model="ir.ui.view">
+            <field name="name">Portnet client</field>
+            <field name="model">portnet.client</field>
+            <field name="arch" type="xml">
+                <form string="Portnet FS">
+                    <sheet>
+                            <group>
+                                <field name="name"/>
+                                <field name="code_client"/>
+                                <field name="num"/>
+                                <field name="client_categ_id"/>
+                                <field name="date"/>
+                            </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+
+        <menuitem id="portnet_client_menu" name="Client" parent="portnet_gu_menu" action="portnet_client_action"/>
+
+
+    </data>
+</openerp>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+
+        <!-- account.processus definitions view -->
+        <record id="account_processus_action" model="ir.actions.act_window">
+            <field name="name">Processus</field>
+            <field name="res_model">account.processus</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Cliquer pour creer un processus.
+                </p>
+            </field>
+        </record>
+
+
+        <record id="account_processus_list_view" model="ir.ui.view">
+            <field name="name">Processus</field>
+            <field name="model">account.processus</field>
+            <field name="arch" type="xml">
+                <tree string="Processus">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="tax_exclude" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="account_Processus_form_view" model="ir.ui.view">
+            <field name="name">Processus</field>
+            <field name="model">account.processus</field>
+            <field name="arch" type="xml">
+                <form string="Processus">
+                    <sheet>
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" class="oe_inline"/>
+                            </h1>
+                            <group>
+                                <field name="code"/>
+                                <field name="tax_exclude" invisible="1"/>
+                            </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+
+        <menuitem id="analytic_processus_menu" name="Processus" parent="analytic_config_menu" action="account_processus_action"/>
+
+
+    </data>
+</openerp>

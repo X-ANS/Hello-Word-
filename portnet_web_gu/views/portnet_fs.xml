@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+
+        <!-- Portnet FS -->
+        <record id="portnet_fs_action" model="ir.actions.act_window">
+            <field name="name">Portnet FS</field>
+            <field name="res_model">portnet.fs</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <record id="portnet_fs_list_view" model="ir.ui.view">
+            <field name="name">Portnet FS</field>
+            <field name="model">portnet.fs</field>
+            <field name="arch" type="xml">
+                <tree string="Portnet FS">
+                    <field name="name"/>
+                    <field name="num"/>
+                    <field name="date"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="portnet_fs_form_view" model="ir.ui.view">
+            <field name="name">Portnet fs</field>
+            <field name="model">portnet.fs</field>
+            <field name="arch" type="xml">
+                <form string="Portnet FS">
+                    <sheet>
+                            <group>
+                                <field name="name"/>
+                                <field name="num"/>
+                                <field name="date"/>
+                            </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+
+<!--        <menuitem id="portnet_fs_menu" name="Portnet FS" parent="portnet_gu_menu" action="portnet_fs_action"/>-->
+
+
+    </data>
+</openerp>

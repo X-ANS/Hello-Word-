@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record model="res.users.role" id="role_cc_propre">
+            <field name='name'>CC propre</field>
+            <field name='implied_ids' eval="[(6, 0,[
+            ref('hr.group_hr_user'),
+            ])]"/>
+        </record>
+
+        <record model="res.users.role" id="role_cc_franchise">
+            <field name='name'>CC franchisé</field>
+            <field name='implied_ids' eval="[(6, 0,[
+            ref('base.group_public'),
+            ])]"/>
+        </record>
+
+    </data>
+</odoo>

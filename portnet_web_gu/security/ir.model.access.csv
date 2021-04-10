@@ -1,0 +1,15 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_portnet_client_user,account.portnet_client,model_portnet_client,base.group_user,1,0,0,0
+access_portnet_client,account.portnet_client,model_portnet_client,account_activity_prestation.group_account_analytic_abc,1,1,1,1
+access_portnet_ops_user,account.portnet_ops,model_portnet_ops,base.group_user,1,0,0,0
+access_portnet_ops,account.portnet_ops,model_portnet_ops,account_activity_prestation.group_account_analytic_abc,1,1,1,1
+access_portnet_web_user,account.portnet_web,model_portnet_web,base.group_user,1,0,0,0
+access_portnet_web,account.portnet_web,model_portnet_web,account_activity_prestation.group_account_analytic_abc,1,1,1,1
+access_portnet_fs_user,account.portnet_fs,model_portnet_fs,base.group_user,1,0,0,0
+access_portnet_fs,account.portnet_fs,model_portnet_fs,account_activity_prestation.group_account_analytic_abc,1,1,1,1
+access_portnet_edi_user,account.portnet_edi,model_portnet_edi,base.group_user,1,0,0,0
+access_portnet_edi,account.portnet_edi,model_portnet_edi,account_activity_prestation.group_account_analytic_abc,1,1,1,1
+access_portnet_matrix_user,account.portnet_matrix,model_portnet_matrix,base.group_user,1,0,0,0
+access_portnet_matrix,account.portnet_matrix,model_portnet_matrix,account_activity_prestation.group_account_analytic_abc,1,1,1,1
+access_portnet_doc_ops_user,account.portnet_doc_ops,model_portnet_doc_ops,base.group_user,1,0,0,0
+access_portnet_doc_ops,account.portnet_doc_ops,model_portnet_doc_ops,account_activity_prestation.group_account_analytic_abc,1,1,1,1

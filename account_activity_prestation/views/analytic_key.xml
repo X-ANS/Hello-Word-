@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+
+        <!-- analytic.key definitions view -->
+        <record id="analytic_key_action" model="ir.actions.act_window">
+            <field name="name">Clés analytiques</field>
+            <field name="res_model">analytic.key</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Cliquer pour creer une clé analytique.
+                </p>
+            </field>
+        </record>
+
+
+        <record id="analytic_key_list_view" model="ir.ui.view">
+            <field name="name">Clés analytiques</field>
+            <field name="model">analytic.key</field>
+            <field name="arch" type="xml">
+                <tree string="Clés analytiques">
+                    <field name="sequence"/>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="type"/>
+                    <field name="activity_id" attrs="{'invisible':[('type', '!=','activity')],'required':[('type', '=','activity')]}"/>
+                    <field name="prestation_id" attrs="{'invisible':[('type', '!=','prestation')],'required':[('type', '=','prestation')]}"/>
+                    <field name="auto_compute_tag"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="analytic_key_form_view" model="ir.ui.view">
+            <field name="name">Clés analytiques</field>
+            <field name="model">analytic.key</field>
+            <field name="arch" type="xml">
+                <form string="Clés analytiques">
+                    <sheet>
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" class="oe_inline"/>
+                            </h1>
+                            <group>
+                                <field name="code"/>
+                                <field name="type"/>
+                                <field name="activity_id" attrs="{'invisible':[('type', '!=','activity')],'required':[('type', '=','activity')]}"/>
+                                <field name="prestation_id" attrs="{'invisible':[('type', '!=','prestation')],'required':[('type', '=','prestation')]}"/>
+                                <field name="auto_compute_tag"/>
+                                <field name="sequence"/>
+                            </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="analytic_key_filter_view" model="ir.ui.view">
+            <field name="name">Clés analytiques</field>
+            <field name="model">analytic.key</field>
+            <field name="arch" type="xml">
+
+                <search>
+                    <field name="name"/>
+                    <field name="code"/>
+
+                    <group expand="0" string="Grouper par">
+                        <filter string="Type" domain="[]" context="{'group_by':'type'}"/>
+                        <filter string="Activité" domain="[]" context="{'group_by':'activity_id'}"/>
+                        <filter string="Prestation" domain="[]" context="{'group_by':'prestation_id'}"/>
+                    </group>
+
+                </search>
+            </field>
+          </record>
+
+
+
+         <!-- analytic.key.value definitions view -->
+        <record id="analytic_key_value_action" model="ir.actions.act_window">
+            <field name="name">Valeurs clés analytiques</field>
+            <field name="res_model">analytic.key.value</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Cliquer pour creer des valeurs clés analytiques.
+                </p>
+            </field>
+        </record>
+        <record id="analytic_key_value_filter_view" model="ir.ui.view">
+            <field name="name">Valeurs Clés analytiques</field>
+            <field name="model">analytic.key.value</field>
+            <field name="arch" type="xml">
+
+                <search>
+
+                    <group expand="0" string="Grouper par">
+                        <filter string="Clé analytique" domain="[]" context="{'group_by':'analytic_key_id'}"/>
+                        <filter string="Type" domain="[]" context="{'group_by':'type'}"/>
+                        <filter string="Prestation" domain="[]" context="{'group_by':'prestation_id'}"/>
+                        <filter string="Date" domain="[]" context="{'group_by':'value_date'}"/>
+                    </group>
+
+                </search>
+            </field>
+          </record>
+
+
+
+        <record id="analytic_key_value_list_view" model="ir.ui.view">
+            <field name="name">Valeurs clés analytiques</field>
+            <field name="model">analytic.key.value</field>
+            <field name="arch" type="xml">
+                <tree string="Valeurs clés analytiques">
+                    <field name="analytic_key_id"/>
+                    <field name="type"/>
+                    <field name="prestation_id"/>
+                    <field name="value"/>
+                    <field name="value_date"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="analytic_key_value_form_view" model="ir.ui.view">
+            <field name="name">Valeurs clés analytiques</field>
+            <field name="model">analytic.key.value</field>
+            <field name="arch" type="xml">
+                <form string="Valeurs clés analytiques">
+                    <sheet>
+                            <label for="analytic_key_id" class="oe_edit_only"/>
+                            <h1>
+                                <field name="analytic_key_id" class="oe_inline"/>
+                            </h1>
+                            <group>
+                                <field name="type"/>
+                                <field name="prestation_id"/>
+                                <field name="value"/>
+                                <field name="value_date"/>
+                            </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+
+        <!-- key.activity definitions view -->
+        <record id="key_activity_action" model="ir.actions.act_window">
+            <field name="name">Clés activités</field>
+            <field name="res_model">key.activity</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Cliquer pour creer des valeurs clés analytiques pour les activités.
+                </p>
+            </field>
+        </record>
+
+
+        <record id="key_activity_list_view" model="ir.ui.view">
+            <field name="name">Clés activités</field>
+            <field name="model">key.activity</field>
+            <field name="arch" type="xml">
+                <tree string="Clés activités">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="active"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="key_activity_form_view" model="ir.ui.view">
+            <field name="name">Clés activité</field>
+            <field name="model">key.activity</field>
+            <field name="arch" type="xml">
+                <form string="Clés activité">
+                    <sheet>
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" class="oe_inline"/>
+                            </h1>
+                            <group>
+                                <field name="code"/>
+                                <field name="active"/>
+                            </group>
+                        <notebook>
+                            <page string="Valeur de clé">
+                                <field name="key_activity_lines" nolabl="1">
+                                    <tree>
+                                        <field name="activity_id"/>
+                                        <field name="prestation_id"/>
+                                        <field name="key_id"/>
+                                        <field name="value"/>
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <field name="activity_id"/>
+                                            <field name="prestation_id" attrs="{'invisible':[('key_id', '=',True)]}"/>
+                                            <field name="key_id" attrs="{'invisible':[('prestation_id', '=',True)]}"/>
+                                            <field name="value"/>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <menuitem id="analytic_key_menu" name="Clés analytiques" parent="analytic_config_menu" action="analytic_key_action"/>
+        <menuitem id="analytic_key_value_menu" name="Valeurs clés analytiques" parent="analytic_config_menu" action="analytic_key_value_action"/>
+        <menuitem id="key_activity_menu" name="Clés activités" parent="analytic_config_menu" action="key_activity_action"/>
+
+
+    </data>
+</openerp>
