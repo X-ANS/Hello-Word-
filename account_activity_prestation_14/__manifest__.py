@@ -23,7 +23,7 @@
         'security/abc_groups.xml',
         'security/ir.model.access.csv',
         'data/prestation_sequence.xml',
-        # 'views/account.xml',
+        'views/account.xml',
         # 'views/activity_prestation.xml',
         # 'views/processus.xml',
         # 'views/analytic_key.xml',
