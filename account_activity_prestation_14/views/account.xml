@@ -123,7 +123,7 @@
         </record>
         <record id="view_account_move_line_filter_inherited_abc" model="ir.ui.view">
             <field name="name">Journal Items</field>
-            <field name="model">account.move.line.search</field>
+            <field name="model">account.move.line</field>
             <field name="inherit_id" ref="account.view_account_move_line_filter"/>
             <field name="arch" type="xml">
                 <xpath expr="//group" position="inside">
