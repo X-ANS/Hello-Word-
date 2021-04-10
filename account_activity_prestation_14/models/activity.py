@@ -15,9 +15,7 @@ class account_activity(models.Model):
     name = fields.Char(string=u'Description',required=True)
     code = fields.Char(string=u'Code',required=True)
     active = fields.Boolean('Actif', default=True)
-    processus_ids = fields.Many2many(
-        'account.processus', 'activity_processus_rel',
-        string='Processus', required=True)
+    processus_ids = fields.Many2many('account.processus', string='Processus', required=True)
     type = fields.Selection([('direct', 'Direct'),('indirect', 'Indirect'), ('prorata', 'Prorata'),('manday', 'Manday')], 'Type',required=True)
     description = fields.Text(u'Description Inducteur Activité')
     prestation_ids = fields.Many2many('account.prestation', 'activity_prestation_rel',
