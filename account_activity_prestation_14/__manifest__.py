@@ -20,9 +20,9 @@
     'depends': ['account','analytic'],
     "images": ['static/description/banner.png'],
     'data': [
-        # 'security/abc_groups.xml',
-        # 'security/ir.model.access.csv',
-        # 'data/prestation_sequence.xml',
+        'security/abc_groups.xml',
+        'security/ir.model.access.csv',
+        'data/prestation_sequence.xml',
         # 'views/account.xml',
         # 'views/activity_prestation.xml',
         # 'views/processus.xml',
