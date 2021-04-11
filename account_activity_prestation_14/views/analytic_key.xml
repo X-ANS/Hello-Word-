@@ -95,10 +95,10 @@
                 <search>
 
                     <group expand="0" string="Grouper par">
-                        <filter string="Clé analytique" domain="[]" context="{'group_by':'analytic_key_id'}"/>
-                        <filter string="Type" domain="[]" context="{'group_by':'type'}"/>
-                        <filter string="Prestation" domain="[]" context="{'group_by':'prestation_id'}"/>
-                        <filter string="Date" domain="[]" context="{'group_by':'value_date'}"/>
+                        <filter string="Clé analytique" name="Clé analytique" domain="[]" context="{'group_by':'analytic_key_id'}"/>
+                        <filter string="Type" name="Type" domain="[]" context="{'group_by':'type'}"/>
+                        <filter string="Prestation" name="Prestation" domain="[]" context="{'group_by':'prestation_id'}"/>
+                        <filter string="Date" name="Date" domain="[]" context="{'group_by':'value_date'}"/>
                     </group>
 
                 </search>
