@@ -126,7 +126,7 @@
             <field name="model">account.move.line</field>
             <field name="inherit_id" ref="account.view_account_move_line_filter"/>
             <field name="arch" type="xml">
-                <xpath expr="//search" position="replace">
+                <xpath expr="//search[@string='Search Journal Items']" position="replace">
 <!--                    <search string="Search Journal Items">-->
 <!--                        <field name="name" string="Journal Item" filter_domain="[-->
 <!--                            '|', '|', '|',-->
