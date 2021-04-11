@@ -123,8 +123,8 @@
                     <field name="processus_id"/>
                     <field name="code"/>
                     <group expand="0" string="Grouper par">
-                        <filter string="Processus" domain="[]" context="{'group_by':'processus_id'}"/>
-                        <filter string="prorata_type" domain="[]" context="{'group_by':'prorata_type'}"/>
+                        <filter string="Processus" name="Processus" domain="[]" context="{'group_by':'processus_id'}"/>
+                        <filter string="prorata_type" name="Processus" domain="[]" context="{'group_by':'prorata_type'}"/>
                     </group>
 
                 </search>
