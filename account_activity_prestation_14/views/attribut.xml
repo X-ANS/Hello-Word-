@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+<!--        ATTRIBUT DES PRESTATION-->
+
+        <record id="prestation_attribute_a_action" model="ir.actions.act_window">
+            <field name="name">Attribut A</field>
+            <field name="res_model">prestation.attribute.a</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="prestation_attribute_b_action" model="ir.actions.act_window">
+            <field name="name">Attribut B</field>
+            <field name="res_model">prestation.attribute.b</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="prestation_attribute_c_action" model="ir.actions.act_window">
+            <field name="name">Attribut C</field>
+            <field name="res_model">prestation.attribute.c</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="prestation_attribute_d_action" model="ir.actions.act_window">
+            <field name="name">Attribut D</field>
+            <field name="res_model">prestation.attribute.d</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="prestation_attribute_e_action" model="ir.actions.act_window">
+            <field name="name">Attribut E</field>
+            <field name="res_model">prestation.attribute.e</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="account_prestation_phase_action" model="ir.actions.act_window">
+            <field name="name">Phase</field>
+            <field name="res_model">account.prestation.phase</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="prestation_attribute_menu" name="Attribut prestation" parent="analytic_config_menu"/>
+
+
+        <menuitem id="account_prestation_phase_menu" name="Phase" parent="prestation_attribute_menu" action="account_prestation_phase_action"/>
+        <menuitem id="prestation_attribute_a_menu" name="Attribut A" parent="prestation_attribute_menu" action="prestation_attribute_a_action"/>
+
+        <menuitem id="prestation_attribute_b_menu" name="Attribut B" parent="prestation_attribute_menu" action="prestation_attribute_b_action"/>
+
+        <menuitem id="prestation_attribute_c_menu" name="Attribut C" parent="prestation_attribute_menu" action="prestation_attribute_c_action"/>
+
+        <menuitem id="prestation_attribute_d_menu" name="Attribut D" parent="prestation_attribute_menu" action="prestation_attribute_d_action"/>
+
+        <menuitem id="prestation_attribute_e_menu" name="Attribut E" parent="prestation_attribute_menu" action="prestation_attribute_e_action"/>
+
+
+<!--        ATTRIBUT DES ACTIVITES-->
+
+        <record id="activity_attribute_a_action" model="ir.actions.act_window">
+            <field name="name">Attribut activité A</field>
+            <field name="res_model">activity.attribute.a</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="activity_attribute_b_action" model="ir.actions.act_window">
+            <field name="name">Attribut activité B</field>
+            <field name="res_model">activity.attribute.b</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="activity_attribute_c_action" model="ir.actions.act_window">
+            <field name="name">Attribut activité C</field>
+            <field name="res_model">activity.attribute.c</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="activity_attribute_d_action" model="ir.actions.act_window">
+            <field name="name">Attribut activité D</field>
+            <field name="res_model">activity.attribute.d</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="activity_attribute_e_action" model="ir.actions.act_window">
+            <field name="name">Attribut activité E</field>
+            <field name="res_model">activity.attribute.e</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="activity_attribute_menu" name="Attribut activité" parent="analytic_config_menu"/>
+
+        <menuitem id="activity_attribute_a_menu" name="Attribut A" parent="activity_attribute_menu" action="activity_attribute_a_action"/>
+        <menuitem id="activity_attribute_b_menu" name="Attribut B" parent="activity_attribute_menu" action="activity_attribute_b_action"/>
+        <menuitem id="activity_attribute_c_menu" name="Attribut C" parent="activity_attribute_menu" action="activity_attribute_c_action"/>
+        <menuitem id="activity_attribute_d_menu" name="Attribut D" parent="activity_attribute_menu" action="activity_attribute_d_action"/>
+        <menuitem id="activity_attribute_e_menu" name="Attribut E" parent="activity_attribute_menu" action="activity_attribute_e_action"/>
+
+    </data>
+</odoo>

@@ -27,7 +27,7 @@
         'views/activity_prestation.xml',
         'views/processus.xml',
         'views/analytic_key.xml',
-        # 'views/attribut.xml',
+        'views/attribut.xml',
         ],
     'demo': [
     ],
