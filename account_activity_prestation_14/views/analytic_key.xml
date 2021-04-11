@@ -65,9 +65,9 @@
                     <field name="code"/>
 
                     <group expand="0" string="Grouper par">
-                        <filter string="Type" domain="[]" context="{'group_by':'type'}"/>
-                        <filter string="Activité" domain="[]" context="{'group_by':'activity_id'}"/>
-                        <filter string="Prestation" domain="[]" context="{'group_by':'prestation_id'}"/>
+                        <filter string="Type" name="Type" domain="[]" context="{'group_by':'type'}"/>
+                        <filter string="Activité" name="Type" domain="[]" context="{'group_by':'activity_id'}"/>
+                        <filter string="Prestation" name="Type" domain="[]" context="{'group_by':'prestation_id'}"/>
                     </group>
 
                 </search>
