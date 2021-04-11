@@ -127,7 +127,7 @@
             <field name="inherit_id" ref="account.view_account_move_line_filter"/>
             <field name="arch" type="xml">
                 <xpath expr="//search" position="inside">
-                    <group expand="0" name="Group By2">
+                    <group>
                         <filter string="Activité" icon="terp-go-month" context="{'group_by':'activity_id'}"/>
                         <filter string="Prestation" icon="terp-go-month" context="{'group_by':'prestation_id'}"/>
                         <filter string="Clé d'activité" icon="terp-go-month" context="{'group_by':'key_activity_id'}"/>
