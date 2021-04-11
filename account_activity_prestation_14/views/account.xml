@@ -140,7 +140,7 @@
             <field name="name">account.move.line.search</field>
             <field name="model">account.move.line</field>
             <field name="arch" type="xml">
-                <search string="Search Journal Items">
+                <search string="Search Journal Items" version="8.0">
                     <field name="name" string="Journal Item" filter_domain="[
                         '|', '|', '|',
                         ('name', 'ilike', self), ('ref', 'ilike', self), ('account_id', 'ilike', self), ('partner_id', 'ilike', self)]"/>
@@ -185,7 +185,7 @@
                     <separator/>
                     <filter string="Date" name="date" date="date"/>
                     <separator/>
-                    <group expand="0" name="Group By">
+                    <group expand="0" string="Group By">
                         <filter string="Journal Entry" name="group_by_move" domain="[]"
                                 context="{'group_by': 'move_id'}"/>
                         <filter string="Account" name="group_by_account" domain="[]"
