@@ -129,10 +129,10 @@
                 <xpath expr="//search" position="inside">
                     <group>
                         <filter string="Date" name="groupby_date" domain="[]" context="{'group_by': 'date'}"/>
-                        <filter string="Activité" icon="terp-go-month" context="{'group_by':'activity_id'}"/>
-                        <filter string="Prestation" icon="terp-go-month" context="{'group_by':'prestation_id'}"/>
-                        <filter string="Clé d'activité" icon="terp-go-month" context="{'group_by':'key_activity_id'}"/>
-                        <filter string="Type d'activité" icon="terp-go-month" context="{'group_by':'activity_type'}"/>
+                        <filter string="Activité" context="{'group_by':'activity_id'}"/>
+<!--                        <filter string="Prestation" icon="terp-go-month" context="{'group_by':'prestation_id'}"/>-->
+<!--                        <filter string="Clé d'activité" icon="terp-go-month" context="{'group_by':'key_activity_id'}"/>-->
+<!--                        <filter string="Type d'activité" icon="terp-go-month" context="{'group_by':'activity_type'}"/>-->
                     </group>
                 </xpath>
             </field>
