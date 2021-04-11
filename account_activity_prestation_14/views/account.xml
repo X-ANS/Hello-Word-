@@ -121,19 +121,19 @@
 
             </field>
         </record>
-<!--        <record id="view_account_move_line_filter_inherited_abc" model="ir.ui.view">-->
-<!--            <field name="name">Journal Items</field>-->
-<!--            <field name="model">account.move.line</field>-->
-<!--            <field name="inherit_id" ref="account.view_account_move_line_filter"/>-->
-<!--            <field name="arch" type="xml">-->
-<!--                <xpath expr="//group" position="inside">-->
-<!--                     <filter string="Activité" icon="terp-go-month" context="{'group_by':'activity_id'}"/>-->
-<!--                     <filter string="Prestation" icon="terp-go-month" context="{'group_by':'prestation_id'}"/>-->
-<!--                     <filter string="Clé d'activité" icon="terp-go-month" context="{'group_by':'key_activity_id'}"/>-->
-<!--                     <filter string="Type d'activité" icon="terp-go-month" context="{'group_by':'activity_type'}"/>-->
-<!--                 </xpath>-->
-<!--            </field>-->
-<!--        </record>-->
+        <record id="view_account_move_line_filter_inherited_abc" model="ir.ui.view">
+            <field name="name">Journal Items</field>
+            <field name="model">account.move.line</field>
+            <field name="inherit_id" ref="account.view_account_move_line_filter"/>
+            <field name="arch" type="xml">
+                <group  position="inside">
+                     <filter string="Activité" icon="terp-go-month" context="{'group_by':'activity_id'}"/>
+                     <filter string="Prestation" icon="terp-go-month" context="{'group_by':'prestation_id'}"/>
+                     <filter string="Clé d'activité" icon="terp-go-month" context="{'group_by':'key_activity_id'}"/>
+                     <filter string="Type d'activité" icon="terp-go-month" context="{'group_by':'activity_type'}"/>
+                </group>
+            </field>
+        </record>
     </data>
 
 </odoo>
