@@ -3,8 +3,8 @@ from odoo import api, fields, models, tools, _
 from odoo.exceptions import Warning, ValidationError
 
 
-class AccountInvoiceLine(models.Model):
-    _inherit = 'account.invoice.line'
+class AccountMoveLine(models.Model):
+    _inherit = 'account.move.line'
 
     activity_id = fields.Many2one('account.activity', string=u'Activité')
     activity_type = fields.Selection(related='activity_id.type',string=u'type',store=True)
@@ -39,7 +39,7 @@ class AccountInvoiceLine(models.Model):
             return res
 
     def onchange_account_id(self, product_id, partner_id, inv_type, fposition_id, account_id):
-        res = super(AccountInvoiceLine, self).onchange_account_id(product_id, partner_id, inv_type, fposition_id, account_id)
+        res = super(AccountMoveLine, self).onchange_account_id(product_id, partner_id, inv_type, fposition_id, account_id)
         if not account_id:
             return {}
         unique_tax_ids = []
@@ -71,7 +71,7 @@ class AccountInvoiceLine(models.Model):
 
     @api.model
     def move_line_get_item(self, line):
-        vals = super(AccountInvoiceLine,self).move_line_get_item(line)
+        vals = super(AccountMoveLine,self).move_line_get_item(line)
         if line.activity_id:
             vals['activity_id']=line.activity_id.id
         if line.prestation_id:
