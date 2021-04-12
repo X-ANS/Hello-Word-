@@ -17,7 +17,7 @@
     'website': "www.leithsolutions.net",
     'category': 'Comptabilite',
     'version': '14.0',
-    'depends': ['base','account_activity_prestation'],
+    'depends': ['base','account_activity_prestation_14'],
     'data': [
         'views/processus.xml'
         ],
