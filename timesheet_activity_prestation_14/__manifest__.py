@@ -17,7 +17,7 @@
     'website': "https://portail.portnet.ma/",
     'category': 'Human Resources, Analytic Accounting',
     'version': '14.0',
-    'depends': ['hr_timesheet','hr_timesheet_sheet','timesheet_account'],
+    'depends': ['hr_timesheet','hr_timesheet_sheet','timesheet_account_14'],
     'data': [
         # 'views/hr_timesheet_sheet_view.xml',
         # 'views/hr_timesheet_view.xml',
