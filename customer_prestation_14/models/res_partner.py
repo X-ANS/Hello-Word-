@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from odoo import api, fields, models, tools, _
-from odoo.exceptions import Warning, except_orm, ValidationError
 
 
 class res_partner(models.Model):
