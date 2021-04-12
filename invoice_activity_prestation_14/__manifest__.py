@@ -19,7 +19,7 @@
     'version': '14.0',
     'depends': ['base','account','account_activity_prestation_14'],
     'data': [
-        # 'views/invoice_view.xml',
+        'views/invoice_view.xml',
         ],
     'demo': [
     ],
