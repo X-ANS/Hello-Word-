@@ -18,7 +18,6 @@
     'category': 'Comptabilite',
     'version': '14.0',
     'depends': ['account','analytic'],
-    "images": ['static/description/banner.png'],
     'data': [
         'security/abc_groups.xml',
         'security/ir.model.access.csv',
