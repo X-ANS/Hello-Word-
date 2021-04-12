@@ -81,12 +81,12 @@ class AccountMoveLine(models.Model):
         return vals
 
 
-class AccountInvoice(models.Model):
-    _inherit = 'account.invoice'
+class AccountMove(models.Model):
+    _inherit = 'account.move'
 
     @api.model
     def line_get_convert(self, line, part, date):
-        vals = super(AccountInvoice,self).line_get_convert(line,part,date)
+        vals = super(AccountMove,self).line_get_convert(line,part,date)
         vals['activity_id']= line.get('activity_id',False)
         vals['prestation_id']= line.get('prestation_id',False)
         vals['key_activity_id']= line.get('key_activity_id',False)
@@ -96,5 +96,5 @@ class AccountInvoice(models.Model):
         for inv in self:
             if inv.type in ('in_invoice', 'in_refund') and any((not l.activity_id and not l.key_activity_id ) or not l.account_analytic_id for l in inv.invoice_line):
                 raise ValidationError(u"Une ligne de cette facture n'a pas de compte analytique ou ni activité ni clé d'activité!")
-        res = super(AccountInvoice, self).action_move_create()
+        res = super(AccountMove, self).action_move_create()
         return res
