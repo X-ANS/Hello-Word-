@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+            <record id="invoice_supplier_form_inherited_section" model="ir.ui.view">
+                        <field name="name">account.invoice.supplier.form</field>
+                        <field name="model">account.move</field>
+                        <field name="inherit_id" ref="account.view_move_form"/>
+                        <field name="arch" type="xml">
+                            <xpath expr="//notebook/page/field[@name='invoice_line_ids']/tree/field[@name='analytic_account_id']" position="after">
+                                <field name="activity_id"/>
+                                <field name="activity_type" invisible="1"/>
+                                <field name="prestation_id" attrs="{'readonly':[('activity_type','!=','direct')]}"/>
+                                <field name="key_activity_id" attrs="{'readonly':[('activity_type','!=','direct')]}"/>
+                            </xpath>
+                        </field>
+
+            </record>
+<!-- <record id="invoice_form_activity" model="ir.ui.view">-->
+<!--                        <field name="name">account.invoice.activite.form</field>-->
+<!--                        <field name="model">account.invoice</field>-->
+<!--                        <field name="inherit_id" ref="account.invoice_form"/>-->
+<!--                        <field name="arch" type="xml">-->
+<!--                            <xpath expr="//notebook/page/field[@name='invoice_line']/tree//field[@name='account_analytic_id']" position="after">-->
+<!--                                <field name="activity_id"/>-->
+<!--                                <field name="activity_type" invisible="1"/>-->
+<!--                                <field name="prestation_id" attrs="{'readonly':[('activity_type','!=','direct')]}"/>-->
+<!--                                <field name="key_activity_id"/>-->
+<!--                            </xpath>-->
+<!--                        </field>-->
+
+<!--            </record>-->
+
+    </data>
+</odoo>

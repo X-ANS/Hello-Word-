@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="seq_account_prestation" model="ir.sequence">
+                <field name="name">Account prestation</field>
+                <field name="code">prestation_code</field>
+                <field name="padding">6</field>
+            </record>
+    </data>
+</odoo>
