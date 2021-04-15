@@ -36,4 +36,3 @@ access_account_prestation_user,account.account_prestation,model_account_prestati
 access_account_prestation,account.account_prestation,model_account_prestation,group_account_analytic_abc,1,1,1,1
 access_account_processus_user,account.account_processus,model_account_processus,base.group_user,1,0,0,0
 access_account_processus,account.account_processus,model_account_processus,group_account_analytic_abc,1,1,1,1
-access_purchase_portnet_purchase_portnet,purchase_portnet.purchase_portnet,model_purchase_portnet,base.group_user,1,1,1,1
