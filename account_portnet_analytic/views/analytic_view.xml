@@ -533,7 +533,7 @@
         <record id="account_Processus_form_view_inherit" model="ir.ui.view">
             <field name="name">Processus</field>
             <field name="model">account.processus</field>
-             <field name="inherit_id" ref="account_activity_prestation_14.account_Processus_form_view"/>
+             <field name="inherit_id" ref="account_portnet_analytic.account_Processus_form_view"/>
             <field name="arch" type="xml">
 
                 <field name="code" position="after">
