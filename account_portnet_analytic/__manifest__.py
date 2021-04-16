@@ -24,6 +24,7 @@
         'data/prestation_sequence.xml',
         'views/account_view.xml',
         'views/analytic_view.xml',
+        'views/invoice_view.xml',
         ],
     'demo': [
     ],
